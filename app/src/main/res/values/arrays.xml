@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="complain_array">
+        <item>Select Reason</item>
+        <item>Consignee Not Available at Given Address</item>
+        <item>Incomplete Address</item>
+        <item>Wrong Contect Number</item>
+        <item>Wrong Address</item>
+        <item>Consignee refused to recieve</item>
+    </string-array>
+
+</resources>

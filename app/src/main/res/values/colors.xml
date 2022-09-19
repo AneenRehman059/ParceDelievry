@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#05269E</color>
+    <color name="purple_500">#05269E</color>
+    <color name="purple_700">#05269E</color>
+    <color name="teal_200">#05269E</color>
+
+    <color name="teal_700">#05269E</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="half_white">#F2F2F4</color>
+    <color name="chockalte">#7B3F00</color>
+    <color name="app_color">#05269E</color>
+    <color name="primary">#7B3F00</color>
+    <color name="primary_light">#1E3BA7</color>
+    <color name="secodary">#fbc482</color>
+    <color name="colorHint">#CACCCF</color>
+    <color name="dialog_text_color">#5D5E60</color>
+    <color name="disable_color">#C4C4C4</color>
+    <color name="ed_hint_color">#AEB1B4</color>
+    <color name="transparent">#00000000</color>
+    <color name="button_grey">#EAEBED</color>
+    <color name="colorText">#666666</color>
+    <color name="title_text">#25282B</color>
+
+    <color name="lifgt_grey">#E1E1E1</color>
+
+    <color name="bgColorr">#0F3F51B5</color>
+    <color name="bgColor">#f6fbf7</color>
+    <color name="gray">#86000000</color>
+    <color name="lightGray">#1D000000</color>
+    <color name="lightgray">#E6E9F5</color>
+    <color name="icon_wntie_gray">#AAABD8</color>
+    <color name="yellow">#F9DB22</color>
+    <color name="colorgray">#C9C9C9</color>
+    <color name="op_primary">#903B53AB</color>
+    <color name="DarkGray">#C8C9CC</color>
+</resources>
