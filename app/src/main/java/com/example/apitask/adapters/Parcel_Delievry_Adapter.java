@@ -15,11 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apitask.ApiClient;
+import com.example.apitask.CustomToastError;
 import com.example.apitask.R;
 import com.example.apitask.UpdateDelievryRequest;
 import com.example.apitask.UpdateDelievryResponse;
 import com.example.apitask.models.ParcelDelivery;
 import com.example.apitask.room.MyDatabase;
+import com.example.apitask.utils.Utills;
 
 
 import java.util.List;
@@ -54,12 +56,8 @@ public class Parcel_Delievry_Adapter extends RecyclerView.Adapter<Parcel_Delievr
         holder.challan_time.setText(parcelDelivery.getDelievryTime());
         holder.parcel_no.setText(parcelDelivery.getParcelNo());
         holder.status.setText(parcelDelivery.getDelievryStatus());
+        holder.reason_not_deliever.setText(parcelDelivery.getReasonNotDeliever());
 
-//        if (code.equals(parcelDeliveries.get(position).getQrCode())) {
-//            Toast.makeText(context, "Already Exsits", Toast.LENGTH_SHORT).show();
-//            holder.itemView.setVisibility(View.GONE);
-//
-//        }
         code = parcelDeliveries.get(position).getParcelNo();
         holder.post_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +66,12 @@ public class Parcel_Delievry_Adapter extends RecyclerView.Adapter<Parcel_Delievr
                 UpdateDelievryRequest updateDelievryRequest = new UpdateDelievryRequest();
                 updateDelievryRequest.setChallanCODE(parcelDelivery.getParcelNo());
                 updateDelievryRequest.setDelievryREMARKS(parcelDelivery.getDelievryStatus());
+                updateDelievryRequest.setDelieverdReason(parcelDelivery.getReasonNotDeliever());
+
+                if (!Utills.isConnectingToInternet(context)){
+                    new CustomToastError().Show_Toast(context,view,"Please make sure your device is connected with internet");
+                return;
+                }
 
                 Call<UpdateDelievryResponse> call = ApiClient.getUserService().delievryParcel(updateDelievryRequest);
                 call.enqueue(new Callback<UpdateDelievryResponse>() {
@@ -101,9 +105,9 @@ public class Parcel_Delievry_Adapter extends RecyclerView.Adapter<Parcel_Delievr
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView challan_time, parcel_no, status;
+        TextView challan_time, parcel_no, status,reason_not_deliever;
         Button post_btn;
-        LinearLayout designLayout;
+        LinearLayout designLayout, why;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -112,6 +116,8 @@ public class Parcel_Delievry_Adapter extends RecyclerView.Adapter<Parcel_Delievr
             challan_time = itemView.findViewById(R.id.challan_time);
             parcel_no = itemView.findViewById(R.id.parccel_no);
             status = itemView.findViewById(R.id.status);
+            reason_not_deliever = itemView.findViewById(R.id.Nodel_reason);
+            why = itemView.findViewById(R.id.why);
             designLayout = itemView.findViewById(R.id.design_layout);
         }
     }

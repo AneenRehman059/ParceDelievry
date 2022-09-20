@@ -23,10 +23,20 @@ public class ParcelDelivery {
     @ColumnInfo(name = "delievry_time")
     public String delievryTime;
 
+    @ColumnInfo(name = "no_delievry_reason")
+    public String reasonNotDeliever;
+
     public ParcelDelivery() {
 
     }
 
+    public String getReasonNotDeliever() {
+        return reasonNotDeliever;
+    }
+
+    public void setReasonNotDeliever(String reasonNotDeliever) {
+        this.reasonNotDeliever = reasonNotDeliever;
+    }
 
     public int getId() {
         return id;

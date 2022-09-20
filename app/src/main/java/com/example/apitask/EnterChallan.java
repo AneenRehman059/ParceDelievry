@@ -103,6 +103,7 @@ public class EnterChallan extends AppCompatActivity implements View.OnClickListe
                         remark_layout.setVisibility(View.VISIBLE);
                         layout.setVisibility(View.VISIBLE);
                         isDelivered = false;
+                        parcelDelivery.setDelievryStatus("Reason");
                         break;
                 }
             }
@@ -133,9 +134,12 @@ public class EnterChallan extends AppCompatActivity implements View.OnClickListe
 
             if (!isDelivered) {
                 parcelDelievry.setDelievryStatus("Not Delivered");
+                parcelDelievry.setReasonNotDeliever(reason.getSelectedItem().toString());
+
             } else {
                 parcelDelievry.setDelievryStatus("Delivered");
             }
+
 
             NoteDao noteDao = db.noteDao();
             Boolean check = noteDao.is_exists(qr_code.getText().toString());
